@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life</title>
+    <style>
+        #area {
+            display: flex;
+            background-color: whitesmoke;
+            width: 128;
+            height: 128;
+            justify-content: center;
+        }
+
+        #area canvas {
+            image-rendering: pixelated;
+            height: 50vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="area">
+    </div>
+
+    <button onclick="advance()"> next</button>
+
+    
+    <br>
+
+    <input type="number" name="x" id="x">
+    <input type="number" name="y" id="y">
+
+    <br>
+
+    <button onclick="getThing()"> Get thing</button>
+    <button onclick="set(boxX(), boxY(), false)"> Kill </button>
+    <button onclick="set(boxX(), boxY(), true)"> Live </button>
+
+    <br>
+    <textarea id="info" cols="30" rows="10"></textarea>
+    
+    <script>
+
+        const areaDiv = document.getElementById("area");
+
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+        
+        let w = 64;
+        let h = 64; 
+        
+        const nextGen = document.createElement("canvas");
+        const nextContext = nextGen.getContext("2d");
+        
+        function boxX() { return document.getElementById("x").value; }
+        function boxY() { return document.getElementById("y").value; }
+
+        function main() {
+            w = 64;
+            h = 64;
+            canvas.width = w;
+            canvas.height = h;
+
+            context.fillStyle = "black";
+            context.fillRect(0, 0, w, h);
+            areaDiv.appendChild(canvas);
+            // areaDiv.appendChild(nextGen);
+
+        }
+
+
+        function set(x, y, live) {
+            let state = "black";
+            if (live) { state = "white"; }
+
+            context.fillStyle = state;
+            context.fillRect(x,y, 1,1);
+        }
+
+        function setCell(x, y, live) {
+            let state = "black";
+            if (live) { state = "white"; }
+
+            nextContext.fillStyle = state;
+            nextContext.fillRect(x,y, 1,1);
+
+        }
+
+        function getThing() {
+            const x = document.getElementById("x").value;
+            const y = document.getElementById("y").value;
+            const textarea = document.getElementById("info");
+            let data = context.getImageData(x,y, 1,1);
+            console.log(data);
+            console.log(data.data);
+
+            let text = `${data.data}`;
+            textarea.textContent = text;   
+        }
+
+
+        
+        function getCell(x, y) {
+            data = context.getImageData(x, y, 1, 1);
+            let state = false
+            if (data.data[0] > 0) { state = true; } 
+
+            let neighbours = 0;
+
+            for (let i=-1; i <= 1; i++) {
+                // console.log("i ", i)
+                for (let j = -1; j <= 1; j++){
+                    // console.log("j ", j)
+
+                    let nX = x+j;
+                    let nY = y+i
+                    let n = context.getImageData(nX, nY, 1,1).data[0];
+                    if (nX == x && nY == y) { /*console.log("self");*/ continue; }
+                    if ( n > 0 ) neighbours++; 
+                }
+            }
+            // console.log(neighbours);
+
+            // if the result is over 10 then its alive. Else, its dead.
+            // this removes the need of an array with bool and state
+            let r = neighbours;
+            if (state) { r += 10; }
+
+            return r;
+        }
+
+
+        // cell
+        // cell has 8 neighbours
+
+        // if Dcell == 3             = live
+        // if Lcell < 2 neighbours   = dead
+        // if Lcell == 2 || == 3     = live
+        // if Lcell > 3              = dies
+
+        function advance() {
+
+            nextContext.fillStyle = "black";
+            nextContext.fillRect(0, 0, w, h);
+
+            for (i=0; i <= w; i++) {
+                for (j=0; j <= h; j++) {
+                    
+                    let c = getCell(i, j);
+                    
+                    if (c == 3) { setCell(i, j, true); continue; }
+                    if (c < 12) { setCell(i, j, false); continue;}
+                    if (c == 12 || c == 13) { setCell(i, j, true); continue;}
+                    if (c > 13) { setCell(i, j, false); }
+                }
+            }
+
+            context.putImageData(nextContext.getImageData(0, 0, w, h), 0, 0);
+            
+        }
+
+        main();
+    </script>
+</body>
+</html>

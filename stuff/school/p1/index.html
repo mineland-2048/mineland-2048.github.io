@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Desarrollo de aplicaciones moviles</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- <nav id="inicio" class="main-header">
+        <a class="none" href="index.html"><h1> Desarrollo de aplicaciónes moviles</h1></a>
+
+        <div>
+            <button onclick="document.querySelector(`[href^='main']`).setAttribute('href', 'main')"> Disable</button>
+            <button onclick="document.querySelector(`[href^='main']`).setAttribute('href', 'main.css')"> Enable Css</button>
+            <a class="button" href="#desarrollo">Inicio</a>
+        </div>
+    </nav> -->
+
+    <header class="image-header" id="inicio">
+        <h1>Desarrollo de aplicaciones moviles</h1>
+        <span> Una guia sobre el desarrollo movil</span>
+
+
+        <div class="image-container">
+            <img src="images/heading.svg">
+        </div>
+    </header>
+
+    <section id="introduccion" tabindex="0">
+        <h2> Introducción</h2>
+        <p> Esto es un proyecto sobre lo que hemos aprendido en el desarrollo de aplicaciónes moviles en clase</p>
+    </section>
+    
+    <div class="blank rows">
+        <div class="tabla-contenido">
+            
+            <h4> Contenido </h4>
+            <ul>
+                <li class="button-like"> <a href="#Desarrollo"> ¿Qué es el desarrollo de apps? </a></li>
+                <li class="button-like"> <a href="#Antes-de"> Antes de iniciar </a> </li>
+                <li class="button-like"> <a href="#Conocimientos"> Conocimientos generales </a> </li>
+                <li class="button-like"> <a href="#Metodologias"> Metodologías </a> </li>
+                <li class="button-like"> <a href="#Siguientes-pasos"> Siguientes pasos</a> </li>
+                <li class="button-like"> <a href="#Normas"> Las normas y el diseño </a> </li>
+                <li class="button-like"> <a href="#Publicacion"> Publicar tu app </a> </li>
+                <li class="button-like"> <a href="#Conclusion"> Conclusion </a> </li>
+
+            </ul>
+        </div>
+
+
+        <div class="image-container">
+
+            <div class="shadow">
+                <img src="images/social-media-5187243_1280.png" width="800">
+            </div>
+        </div>
+        
+    </div>
+
+    <section id="Desarrollo" tabindex="0">
+
+        <h2>¿Qué es el desarrollo de aplicaciónes moviles?</h2>
+
+        <p>Desarrollar una aplicacion movil requiere varios conocimientos de los cuales hay que contar. Aqui mostraremos los pasos desde el diseño al desarrollo de una aplicación movil</p>
+    
+    </section>
+  
+    <hr>
+
+    <section id="Antes-de" tabindex="0">
+        <h2> Antes de iniciar </h2>
+
+        <p> Se tiene que tener en cuenta hacia que plataforma se va a desarrollar nuestra aplicación. En el espacio movil existen dos ecosistemas principales: Android y IOS</p>
+
+        <div class="double-image" tabindex="0">
+
+            <div class="section-wrapper" id="android-section" tabindex="0">
+                <div class="image-container">
+                    <img src="images/Android_robot.svg" alt="">
+                    <h3 class="title"> android </h3>
+                </div>
+
+                <div class="texto-wrapper">
+                    <div class="texto">
+                        <ul>
+                            <li> Mayor libertad de desarrollo</li>
+                            <li> Gran variedad de dispositivos</li>
+                            <li> Menos restricciones de distribución</li>
+                        </ul>
+    
+                        <p> Aqui es mas sencillo y no te cobran tanto, pero hay una infinidad de dispositivos distintos</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="section-wrapper" id="ios-section" tabindex="0">
+                <div class="image-container">
+                    <img src="images/apple-logo.svg" alt="">
+
+                    <h3 class="title"> IOS </h3>
+                </div>
+
+                <div class="texto-wrapper">
+                    <div class="texto">
+                        <ul>
+                            <li> Mas uniformidad de dispositivos</li>
+                            <li> Un ecosistema conciso y cerrado</li>
+                            <li> Mayor cantidad de restricciones</li>
+                        </ul>
+    
+                        <p> Aqui es mas molesto y te cobran bastante, pero es mas similar entre cada dispositivo</p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <p class="center"> Cada ecosistema tiene sus venatjas y desventajas, pero la filosofia es generalmente la misma para el desarrollo de una aplicacion movil. </p>
+        
+    </section>
+
+    <hr>    
+
+    <inicio-wrap> 
+        <a class="inicio" href="#inicio" tabindex="-1"> </a>
+    </inicio-wrap>
+
+    <section id="Conocimientos" tabindex="0">
+        <h2> Conocimientos generales </h2>
+        <h4> ¿Qué es todo esto? </h4>
+
+        <p> Una aplicacion movil, como su nombre indica, es una aplicacion diseñada para dispositivos moviles. Un dispositivo movil es todo aquel dispositivo que podemos llevar en nuestros bolsillo, principalmente los telefonos celulares. Son pequeños y se espera que todo sea rapido en estos</p>
+
+        <p> Las aplicaciones moviles son diseñadas para resolver algun problema. Si quieres empezar a hacer una entonces tienes un problema el cual piensas podrias resolver con una aplicacion rapida que puedas sacar en el momento desde tu telefono.</p>
+
+        <div class="image-insert">
+            <div class="image-container image-blur">
+                <img src="images/pineapple.webp">
+            </div>
+            <footer> Los telefonos dan miedo</footer>
+        </div>
+
+
+        <p> Para poder hacer una aplicacion movil se requiere tener una vista clara de lo que quieres lograr.</p>
+
+        <ul class="text-fade">
+            <p>
+                ¿Cuál es mi problematica?
+                ¿Se puede solucionar con una aplicación?
+                ¿Es factible el desarrollarla?
+                ¿Qué necesito para hacerla?
+                ¿Puédo cubrir los costos que ocupa?
+                ¿De verdad es necesaria?
+            </p>
+        </ul>
+
+        <p> Todas estas preguntas son validas, pero si se toma con calma entonces se pueden responder tranquilamente</p>
+
+        <p> Una vez tengas respuesta para estas, podemos empezar</p>
+    </section> 
+
+    <hr>
+
+    <section id="Metodologias" tabindex="0">
+        <h2>Metodologias</h2>
+        <p> Las metodologias ayudan a tener un orden en el desarrollo de tu aplicacion. </p>
+        <p> Hay varias metodologias para el desarrollo de aplicaciones, pero aqui veremos 3 en especifico. </p>
+
+
+        <div class="columns fill">
+
+            <div tabindex="0">
+                <h3> Desarrollo Rapido de aplicaciones (RAD)</h3>
+                <p> Enfoque iterativo que prioriza el desarrollo rápido de prototipos y la retroalimentación continua del usuario. Busca adaptarse a cambios en los requisitos de manera ágil y acelerar el tiempo de desarrollo.</p>
+
+                <div class="lists">
+                    
+                    <h4> Ventajas</h4>
+                    <ul style="list-style: '+  ';">
+                        <li>Entregas Rápidas: RAD se centra en entregas rápidas y prototipos funcionales, lo que permite a los clientes obtener resultados tangibles de manera más rápida.</li>
+                        <li>Retroalimentación Continua: La participación activa del cliente durante el desarrollo permite una retroalimentación constante, lo que facilita la adaptación a los cambios de requisitos.</li>
+                        <li>Mejora de la Productividad: La reutilización de componentes y la participación activa del usuario final pueden mejorar la productividad y la satisfacción del cliente.</li>
+                    </ul>
+    
+                    <h4> Desventajas</h4>
+                    <ul style="list-style: '-  ';">
+                        <li>Dependencia de la Participación del Usuario: La necesidad de una participación activa del cliente puede ser un desafío si el cliente no puede dedicar suficiente tiempo o si sus expectativas no están claras.</li>
+                        <li>Complejidad de Gestión: La gestión de múltiples prototipos y el riesgo de desarrollo rápido pueden aumentar la complejidad de la gestión del proyecto.</li>
+                        <li>Requisitos de Expertos: Se requiere un equipo altamente competente y experto para implementar con éxito esta metodología.</li>
+                    </ul>
+
+                </div>
+                
+            </div>
+
+            <div tabindex="0">
+                <h3>Metodologias Agiles</h3>
+                <p> Marco de desarrollo colaborativo y flexible que se centra en la entrega incremental y frecuente de software funcional. Incorpora la retroalimentación continua de los usuarios y permite adaptarse a cambios en los requisitos durante todo el proceso de desarrollo. Ejemplos incluyen Scrum y Kanban.</p>
+
+                <div class="lists">
+                    
+                    <h4> Ventajas</h4>
+                    <ul style="list-style: '+  ';">
+                        <li>Flexibilidad y Adaptabilidad: Agile se adapta fácilmente a los cambios en los requisitos del cliente, permitiendo una mayor flexibilidad durante todo el proceso de desarrollo.</li>
+                        <li>Entregas Incrementales: El desarrollo se divide en iteraciones o sprints, con entregas incrementales y regulares de funcionalidades, lo que permite a los clientes ver y utilizar partes del sistema antes de su finalización.</li>
+                        <li>Colaboración Activa: Se enfoca en la comunicación y colaboración continua entre los miembros del equipo y los clientes, fomentando un ambiente de trabajo colaborativo y receptivo a los cambios.</li>
+                    </ul>
+    
+                    <h4> Desventajas</h4>
+                    <ul style="list-style: '-  ';">
+                        <li>Complejidad de Planificación: La adaptabilidad puede llevar a una mayor complejidad en la planificación, ya que los requisitos pueden evolucionar durante el desarrollo.</li>
+                        <li>Documentación Limitada: Algunas metodologías ágiles dan menos importancia a la documentación exhaustiva, lo que puede generar desafíos en la gestión del conocimiento y la transición de equipos.</li>
+                        <li>Necesidad de Participación Activa: La necesidad de una participación continua y activa del cliente puede ser un desafío si los stakeholders no están disponibles o comprometidos.</li>
+                    </ul>
+                </div>
+
+                
+            </div>
+
+            <div tabindex="0">
+                <h3> Metodologia en cascada</h3>   
+                <p> Enfoque secuencial y lineal para el desarrollo de software, donde cada fase debe completarse antes de pasar a la siguiente. Las etapas incluyen requisitos, diseño, implementación, pruebas, despliegue y mantenimiento</p>
+
+                <div class="lists">
+                    
+                    <h4> Ventajas</h4>
+                    <ul style="list-style: '+  ';">
+                        <li>Estructura Clara: La metodología en cascada sigue una estructura lineal y secuencial, lo que facilita la planificación y la comprensión del progreso del proyecto.</li>
+                        <li>Documentación Completa: Cada fase produce una documentación completa antes de pasar a la siguiente etapa, lo que facilita la gestión del conocimiento y la transición entre equipos.</li>
+                        <li>Control de Cambios: Los cambios son más fáciles de gestionar ya que se introducen después de la entrega de una fase, evitando cambios constantes durante el desarrollo.</li>
+                    </ul>
+    
+                    <h4> Desventajas</h4>
+                    <ul style="list-style: '-  ';">
+                        <li>Poca Flexibilidad ante Cambios: La rigidez de la estructura secuencial puede dificultar la adaptación a cambios de requisitos o descubrimientos durante el desarrollo.</li>
+                        <li>Entregas Tardías de Valor: Los clientes no ven resultados hasta que se completa el proyecto, lo que puede ser un problema si hay necesidades urgentes o si se requiere retroalimentación temprana.</li>
+                        <li>Riesgo de Fallo al Final del Proyecto: Si hay problemas significativos al final del ciclo de desarrollo, corregirlos puede ser costoso y demorado.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+
+        <p> Ten encuenta estos flujos de trabajo o cualquier otro mas al que te puedas adaptar para tener una optima forma de trabajar</p>
+
+    </section>
+
+    <hr>
+
+    <section id="Siguientes-pasos" tabindex="0">
+        <h2>Siguientes pasos</h2>
+        <p> Ya tienes todo tu estructura lista? lo siguiente sera determinar que herramientas estan a tu alcanse para la plataforma que elegiste enfocar tu aplicacion</p>
+
+        <p> Lo esencial para esto es tener tu entorno de desarrollo. De estos hay distintos tipos en ambas plataformas, pero aqui trabajaremos con 2 especificos: <b>B4A</b> para android y <b>Xcode</b> para IOS</p>
+
+        <div class="fill rows">
+            <div id="android-pasos" class="columns">
+                <h3>Android</h3>
+
+                <div class="intro">
+
+                    
+                    <h4> <a href="https://www.b4x.com/b4a.html">
+                        <img src="images/b4A_128_128_white.png" height="64">
+                        B4A
+                    </a> </h4>
+
+                    <div>
+                        <p> 
+                            B4A es una herramienta para el desarrollo de aplicaciones nativas para Android. Es desarrollada y distribuida por <i>Anywhere Software Ltd.</i>
+                        </p>
+                        <cite> <a href="https://en.wikipedia.org/wiki/Basic4android">Basic4Android - Wikipedia</a></cite>
+                    </div>
+                    
+                </div>
+
+                <div class="req">
+
+                    <h4> Requerimientos </h4>
+                    <ul>
+                        <li> Una pc de 64 bits</li>
+                        <li> ??? (no se listan requerimientos minimos en su sitio)</li>
+                    </ul>
+                </div>
+
+                <div class="inst">
+                    <a href="https://www.b4x.com/b4a.html"><p>Se descarga desde el sitio oficial. Ahi mismo vienen las instrucciones de instalación</p></a>
+                </div>
+
+            </div>
+
+
+            <div id="ios-pasos" class="columns">
+                <h3>IOS</h3>
+
+                <div class="intro">
+
+                    
+                    <h4 class="button-like"> <a href="https://developer.apple.com/xcode/">
+                        <img src="images/Xcode_14_icon.png" height="64">
+                        Xcode
+                    </a></h4>
+
+                    <div>
+                        <p>
+                            Xcode es un entorno de desarrollo integrado para macOS que contiene un conjunto de herramientas creadas por <i>Apple</i> destinadas al desarrollo de software para macOS, iOS, watchOS y tvOS.
+                        </p>
+                        <cite><a href="https://es.wikipedia.org/wiki/Xcode">Xcode - Wikipedia </a></cite>
+
+                    </div>
+                </div>
+
+                <div class="req">
+                    <h4>Requerimientos</h4>
+                    <ul>
+                        <li> Una Mac. Moderna de preferencia</li>
+                        <li> Cuenta de desarrollador de Apple ($99 USD anuales)</li>
+                    </ul>
+                </div>
+
+
+                <div class="inst">
+                    <a href="https://apps.apple.com/us/app/xcode/id497799835"> <p> Se descarga desde la <b>App store</b> de <i>Apple</i> </p> </a>
+                </div>
+            </div>
+
+        </div>
+
+        <p> Una vez tengas tu entorno listo, puedes empezar a ver como funciona todo y experimentar que se puede hacer. Por lo general se recomienda iniciar con algun ejemplo de Hola Mundo. Este varia depende de tu entorno, y puedes buscar en internet como funcionan.</p>
+    </section>
+
+    <hr>
+
+    <section id="Normas" tabindex="0">
+        <h2>Las normas y el diseño</h2>
+
+        <p>Ya tienes la estructura basica de tu aplicación, ahora necesitas adherirte a las normas de diseño de tu plataforma especificada. Estas son distintas para cada una y requieren algo de trato especial.</p>
+
+        <p> Para mas informacion: refierase a estos links: </p>
+
+        
+        <a class="link-ico" href="https://developer.android.com/design/ui/mobile">
+            <img src="images/android-favico.png" height="24">
+            Mobile | UI Design  |  Android Developers
+        </a>
+
+        <br>
+        
+        <a class="link-ico" href="https://developer.apple.com/ios/planning/">
+            <img src="images/iOS-favico.ico" height="24">    
+            Planning your iOS app - Apple Developer
+        </a>
+    
+
+        <hr>
+
+        <h3> © El copyright</h3>
+        <p> Una cosa importante en cualquier cosa que utilize recursos es el respeto de los derechos de autor. Ya sea graficos, codigo, o cualquier otra cosa protegidad por estas leyes. </p>
+        
+        <div class="image-insert rows">
+            <div>
+                <div class="image-container image-blur">
+                    <img src="images/phoenix.webp" height="200">
+                </div>
+                
+                <footer> Te llevan a la corte y te tumban todo</footer>
+                <footer> <cite> Phoenix Wright - Ace Attorney. Nintendo </cite> </footer>
+            </div>
+        </div>
+
+        <p>No cumplir con las atribuciones correspondientes puede destruir todo el trabajo realizado con una demanda, asi que hay que tenerlos en cuenta al momento de agarrar algo de afuera para ponerlo dentro de tu app </p>
+    </section>
+
+    <hr>
+
+    <section id="Publicacion" tabindex="0">
+        <h2> Publicar tu app </h2>
+        <p> Ya tienes todo listo? Entonces toca publicar tu aplicación. Tienes que cumplir con todas las normas del lugar en donde vayas a publicarla. Comunmente es en una tienda de aplicaciones respectiva a la plataforma. Estas tienen un conjunto de normas que tienes que cumplir si quieres que acepten tu aplicacion y la publiquen.</p>
+
+        <br>
+
+        <h3> Google Play y la App Store</h3>
+        <p> Google play es la tienda predeterminada para varios telefonos con Android. En esta se descargan la mayor parte de aplicaciones para este sistema. El equivalente en iOS es la App Store. Cada una tiene sus normas y restricciones, pero son la forma mas accesible para que los usuarios encuentren tu app.</p>
+
+        <a href="https://developer.android.com/studio/publish/" class="link-ico">
+            <img src="images/android-favico.png" height="24">
+            Publish your app  |  Android Studio  |  Android Developers
+        </a>
+        <br>
+        <a href="https://developer.apple.com/ios/submit/" class="link-ico">
+            <img src="images/iOS-favico.ico" height="24">    
+            Submit your iOS apps to the App Store - Apple Developer
+        </a>
+
+
+        <h3> Alternativas (solo Android)</h3>
+        <p> En Android se pueden instalar aplicaciones directamente de un archivo .APK sin necesidad de subirla a una tienda y lidiar con todo lo que implica. Esto es util para algunos casos en los que se necesite, pero es mas arriesgado para el usuario ir a descargar una aplicacion desconocida de ese modo, pero es una opcion aun asi.</p>
+        <p> iOS no permite tal funcionalidad.</p>
+
+
+        
+
+    </section>
+
+    <hr>
+
+    <section id="Conclusion" tabindex="0">
+        <h2> Conclusion </h2>
+        <p> Lograr terminar una aplicacion movil es una tarea enorme que lleva bastante tiempo y esfuerzo, pero con los recursos necesarios es posible volver realidad aquella herramienta que se tiene pensada que podria cambiarlo todo.</p>
+    </section>
+
+
+    <hr>
+
+    <footer> 
+        <h4> did this in highschool</h4>
+        <h4> -mineland </h4>
+    </footer>
+</body>
+</html>

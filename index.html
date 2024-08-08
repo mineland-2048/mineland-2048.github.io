@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <head>
+        <title>Mineland's den</title>
+        <link rel="stylesheet" href="main.css" id="css">
+        <script src="script.js"></script>
+    </head>
+    <body cheap="true">
+
+        <background id="background"> <p> Basic design</p> </background>
+
+        <div id="home"></div>
+        <header id="topHeader">
+            <h2 class="title"> <a href="" id="title"> Mineland's den</a></h1>
+            <div> <ul>
+                <li> <a class="button" href="#Info"> About me </a> </li>
+                <li> <a class="button" href="#Proyects"> Proyects </a></li>
+                <li> <a class="button" href="#Contact"> Contact </a></li>                
+            </ul> </div>
+
+            <div>
+                <!-- <button class="button" onclick="redact();"> Redact</button> -->
+                <button class="button" onclick="fancy()"> Fancy toggle </button>
+
+            </div>
+        </header>
+
+        <section id="Intro">
+            <h1>Buenas tardes</h1>
+            <!-- <h2>Buenas tardes</h2> -->
+        </section>
+
+
+        <div class="main">
+
+            <section id="info">
+                <div class="content">
+                    
+                    <div class="informacion" id="profile"> 
+                        <p> mineland </p>
+                        <p> Age: 18 </p> 
+                        <p> Status: Soon to uni</p> 
+                        
+                    </div>
+                    <div class="descripcion" id="desc">
+                        <h3>Acerca de</h3>
+                        <p>It me. The silly funny man. I sometimes do code and other stuff</p>
+                    </div>
+                </div>
+                    
+            </section>
+
+            <br>
+
+            
+            <section id="proyectos">
+                <h2>Proyects</h2>
+                <p>A list of stuff I've made so far</p>                
+                <div>
+                   
+                    <div class="proy">
+                        <div>
+                            <h3> <a href="stuff/HomescreenProject/HomeScreenProject.html"> <img src="icons/newTabIcon.svg" alt="" class="icon" width="64px" height="64px"> HomescreenProject</a></h3>
+                            <p> An alternative home screen</p>
+                        </div>
+
+                        <div>
+                            <img src="img/homeScreenProject.png" class="preview" height="512px" alt="HomescreenProject preview">
+                        </div>
+                    </div>
+
+                    <div class="proy">
+                        <div>
+
+                            <h3> <a href="stuff/CTForm/CTForm.html"> Connected Textures Formatter</a></h3>
+                            <p> A connected textures formatter for Minecraft (currently not working)</p>
+                        </div>
+
+                        <div>
+                            <img src="img/Ctmform.png" class="preview" height="512px" alt="CTMFormatter">
+                        </div>
+                    </div>
+
+                    <div class="proy">
+                        <div>
+                            <h3> <a href="stuff/life/life.html"> Life.png</a></h3>
+                            <p> Conway's Game of Life in a canvas</p>
+                        </div>
+
+                        <div>
+                            <img src="img/life.png" class="preview" height="512px" alt="Life">
+                        </div>
+                    </div>
+
+                    <div class="proy">
+                        <div>
+                            <h3> <a href="https://addons.mozilla.org/en-US/firefox/addon/chat-popup/"> 
+                                <img src="icons/chat-popup.svg" alt="" class="icon" width="64px" height="64px">
+                                chat-popup</a></h3>
+                            <p> A firefox extensions to make chat messengers pop out</p>
+                        </div>
+
+                        <div>
+                            <img src="img/chat-popout.png" class="preview" height="512px" alt="chat-popout">
+                        </div>
+                    </div>
+                    
+                    <div class="proy">
+                        <div>
+                            <h3> <a href="stuff/school/p1/index.html"> 
+                                Blog: desarrollo de aplicaciones mobil</a></h3>
+                            <p> A mobile app dev blog I did as a class proyect. Its in spanish</p>
+                        </div>
+
+                        <div>
+                            <img src="img/Screen Shot 2024-03-12 at 18.46.04.png" class="preview" height="512px" alt="blog thingy">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <h2><a id="galleryTitle" href="Galeria.html">Galery </a></h2>
+                <p id="galleryInfo">I've also done some small</p>
+            </section>
+            
+
+            <br>
+
+        </div>
+        <button onclick="document.getElementById('css').setAttribute('href', '')"> disable css</button>
+        
+        <footer id="mainFooter">
+            <section id="contacto">
+                <h2>Contact</h2>
+                <ul>
+                    <li><img src="mail.png" alt="Mail: "> mineland222@gmail.com</a></li>
+                    <li> <p href=""> <img src="discord.png" alt="Discord: "> @mineland. </p></li>
+                </ul>
+            </section>
+            <h4 id="copyright">mineland did this</h4>
+            <h4 id="copyrightMessage">ARR</h4>
+        </footer>
+
+        <script>
+        bgInit();
+        
+
+            function fancy() {
+                let cheap = document.body.getAttribute("cheap");
+
+                if (cheap == "true") { document.body.setAttribute("cheap", "false"); return; }
+
+                document.body.setAttribute("cheap", "true");
+            }
+        </script>
+
+    </body>
+</html>

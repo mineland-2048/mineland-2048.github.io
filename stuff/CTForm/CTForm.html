@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connected Textures Form</title>
+    <script src="stuff.js"></script>
+    <script src="configs.js"></script>   
+    <!-- <script src="https://www.lactame.com/lib/image-js/0.21.2/image.min.js"></script> -->
+
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <h1>
+        Connected Textures Formatter
+    </h1>
+
+
+    <div class="divide">
+        <div>
+            <p>Upload format texture</p>
+            source format: 
+            <select name="format" id="format">
+                <option value="MCP"> Optifine / continuity </option>
+            </select>
+            
+            <br>
+
+            type: 
+            <select name="type" id="imageType">
+                <option value="ctm">ctm template</option>
+                <option value="ctm_compact">ctm compact template</option>
+                <option value="overlay">overlay template</option>
+                <option value="horizontal">horizontal template</option>
+                <option value="vertical">vertical template</option>
+            </select>
+
+            <br>
+            image (can accept a single template one or multiple ones): 
+            <input type="file" accept="image/*" multiple="true" name="texture" id="imageUpload" onchange="loadImageFromInput(this)">
+            
+            <br>
+    
+            properties file
+            <input accept="text/plain, .properties" type="file" name="properties" id="propertiesUpload" onchange="loadFileFromInput(this)">
+        </div>
+
+        <div class="addCTM">
+
+            <div class="imagePreviewContainer" id="imagePreviewContainer">
+                <p>ctm image</p>
+            </div>
+        
+            <div class="codeContainer">
+                <p>properties</p>
+                <input type="text" name="propertiesName" id="propertiesName" placeholder="Name of the file">
+                <br>
+                <textarea name="code" id="codePreview" cols="72" rows="10"></textarea>
+            </div>
+    
+        </div>
+
+    </div>
+
+
+    <button onclick="addTexture()"> Add Texture</button>
+
+
+    <div>
+        <p>Textures</p>
+
+        <div id="textureList">
+            <img id="result">
+        </div>
+    </div>
+    <hr>
+
+    <input type="number" id="x" placeholder="x">
+    <input type="number" id="y" placeholder="y">
+    <input type="text" id="block" placeholder="block">
+    <button onclick="addBlockInput()"> addBlock</button>
+
+    
+    
+
+
+    <div id="gridView"> 
+    </div>
+
+
+
+    <script>
+        const mainGrid = new Grid();
+        function reloadView() {
+            document.getElementById("gridView").replaceChildren(mainGrid.gridElement);
+        }
+           
+
+
+        async function loadImageFromInput(input) {
+            const files = input.files;
+            const previewContainer = document.getElementById("imagePreviewContainer");
+            const array = [];
+            previewContainer.replaceChildren();
+
+            for (let i = 0; i < files.length; i++) {
+                let file = files[i];
+
+                let reader = new FileReader();
+                
+                // const preview = document.getElementById("ctmImage");
+                
+                reader.onload = function (e) {
+                    let cache = new Image();
+                    cache.src = e.target.result;
+                    let preview = document.createElement("canvas");
+                    let context = preview.getContext("2d");
+                    preview.width = cache.width;
+                    preview.height = cache.height;
+                    context.drawImage(cache, 0, 0);
+                    array[i] = preview;
+                }
+
+                reader.readAsDataURL(file);
+            }
+
+            
+
+            
+        }
+
+
+        function loadImage(file) {
+            return new Promise((resolve, reject) => {
+
+                let imgCache = "";
+
+                if (file) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        imgCache = e.target.result;
+                        resolve(imgCache);
+                    };
+
+                    reader.onerror = function (error) {
+                        reject(error);
+                    };
+
+                    reader.readAsDataURL(file);
+                } else {
+                    reject("No file selected.");
+                }
+            });
+        }
+
+        function loadFileFromInput(input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+
+                const codePreview = document.getElementById("codePreview");
+                const previewName = document.getElementById("propertiesName");
+                reader.onload = function (e) {
+                    const text = e.target.result;
+                    previewName.value = file.name;
+                    codePreview.value = text;
+
+                };
+                reader.readAsText(file);
+            }
+
+        }
+
+        async function addTexture() {
+            let type = document.getElementById("imageType").value;
+            let image = "";
+            try {
+                image =  await loadImage(document.getElementById("imageUpload").files[0]);
+            } catch (error) {
+                console.error(error);
+            }
+
+            if (image == "") { console.error("You got no images dummy! "); return; }
+        
+            let properties = {};
+            let propertiesName = document.getElementById("propertiesName").value;
+            let propertiesRaw = document.getElementById("codePreview").value; 
+            let propertiesFormat = document.getElementById("format").value;
+
+            properties["name"] = propertiesName;
+            properties["raw"] = propertiesRaw;
+            properties["format"] = propertiesFormat;
+            
+            
+            let size = document.getElementById("textureSize")
+
+            let texture = new Texture(type, image, properties);
+            texture.setSize()
+
+            
+
+
+            try {
+                result = setTexture(texture, type);
+
+            } catch(e) {
+                console.error("Something went wrong! ");
+                console.error(e);
+            }
+            // alert("doneso");
+
+            let splitImages = document.createElement("div");
+            result.forEach(element => {
+                let imageElement = document.createElement("img");
+                imageElement.src = element.toDataURL();
+                splitImages.appendChild(imageElement);
+            });
+            document.getElementById("textureList").replaceWith(splitImages);
+            splitImages.id = "textureList";
+            
+
+        }
+        
+        function setTexture(texture, size) {
+            result = texture.split(size);
+            return result;            
+        } 
+
+        function addBlockInput() {
+            let x = document.getElementById("x").value;
+            let y = document.getElementById("y").value;
+
+            if (x == '') { x=0; } else { x = parseInt(x);}
+            if (y == '') { y=0; } else { y = parseInt(y);}
+
+            let id = document.getElementById("block").value;
+
+            const block = new Block(x, y, id);
+            mainGrid.addBlock(block);
+            reloadView();
+        }
+        
+        
+    </script>
+</body>
+</html>

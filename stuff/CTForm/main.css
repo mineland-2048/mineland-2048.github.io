@@ -1,0 +1,54 @@
+#gridView {
+    display: flex;
+    border: 2px black solid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+img {
+    image-rendering: pixelated;
+    padding:2px;
+}
+
+.divide {
+    display: flex;
+}
+
+.addCTM {
+    display: flex;
+    max-height: 256px;
+
+    & > div {
+        padding: 8px;
+    }
+
+}
+
+.imagePreviewContainer {
+    display: flex;
+    flex-direction: column;
+    width: 128px;
+}
+
+block {
+    display: block;
+    width: 64px;
+    height: 64px;
+
+    image-rendering: pixelated;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    box-shadow: 0 0 2px 2px black inset;
+}
+
+grid {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+row {
+    display: grid;
+    grid-auto-flow: column;
+}
